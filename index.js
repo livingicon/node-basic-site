@@ -9,8 +9,8 @@ const fs = require('fs');
 http
   .createServer((req, res) => { // 1. create a node server
     const q = url.parse(req.url, true); // 2. get the url by parsing
-    let filePath = `./${q.pathname === '/' ? 'index' : q.pathname}.html`;
-      console.log(filePath);
+    let filePath = `.${q.pathname === '/' ? '/index' : q.pathname}.html`;
+      // console.log(filePath);
 
     fs.readFile(filePath, (err, data) => {
       console.log(filePath);
